@@ -31,19 +31,17 @@ using System.Diagnostics;
 
 
     public void MostrarEstado()
-   {
+    {
     Console.WriteLine("********************** Mostrar Estado ****************************");
-    Console.WriteLine($"El nombre es: {this.Modelo}");
-    Console.WriteLine($"El tipo es {this.IPPublica}");
+    Console.WriteLine($"El nombre del Modelo es: {this.Modelo}");
+    Console.WriteLine($"La Ip Publica es {this.IPPublica}");
     foreach (var item in GetReglas())
      {
         Console.WriteLine($"Regla: '{item}'");       
      }
     
     Console.WriteLine("*****************************************************************");
-   }
-         
-        
+    }        
 
     
     }
