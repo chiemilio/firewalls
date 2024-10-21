@@ -1,30 +1,60 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using firewalls;
+using firewall;
 
-class Program {
-    public static void Main(string[] args)  
+
+class Program
+{
+    //
+    public static void Main(string[] args)
     {
-        /*Firewall firewall= new Firewall("emilio","lic",false, "nonoino");
-        firewall.Activar(true);
-        //firewall.MostrarEstado();
+        /*
+        Firewall firewall= new Firewall("emilio","lic");
+        firewall.Activar();
+        firewall.MostrarEstado();
         firewall.AgregarRegla("todos deven comer");
         firewall.AgregarRegla("todos no deven comer");
         firewall.MostrarEstado();
-        firewall.Desactivar(true);
+        firewall.Desactivar();
         firewall.AgregarRegla("honrar a papa y mama");
-        firewall.MostrarEstado();*/
-       /* FirewallHardware firewallHardware= new FirewallHardware("emilio","lic",true, "nonoino", "tollots","123121352564");
-        firewallHardware.MostrarEstado();
-        firewallHardware.Activar(true);
+        firewall.MostrarEstado();
+        firewall.SetReglas("todos deven comer");
+        firewall.SetReglas("todos no deven comer");
+        */
+
+        //FirewallHardware firewallHardware = new FirewallHardware("luna", "Hardware", "tollots", "mifd352156465");
+        /*firewallHardware.MostrarEstado();
         firewallHardware.Activar();
         firewallHardware.MostrarEstado();
-
+        firewallHardware.Desactivar();
+        firewallHardware.MostrarEstado();
         */
-        FirewallSoftware firewallSoftware = new FirewallSoftware("emilio","lic",true, "nonoino", "1.2","123121352564");
+
+        /*
+        FirewallSoftware firewallSoftware = new FirewallSoftware("luna", "Software", "1.5", "limitada");
         firewallSoftware.Activar();
+        firewallSoftware.MostrarEstado();
+        */
+
+        /*
+        FirewallAvanzado Hardware = new FirewallAvanzado(firewallHardware.GetNombre(), firewallHardware.GetTipo(), firewallHardware, firewallSoftware, "Tecnologia");
+        FirewallAvanzado Software = new FirewallAvanzado(firewallHardware.GetNombre(), firewallHardware.GetTipo(), firewallHardware, firewallSoftware, "Tecnologia");
+        Hardware.MostrarEstado();
+        Software.MostrarEstado();
+        Hardware.Activar();
+        Hardware.MostrarEstado();
+        Software.Activar();
+        Software.MostrarEstado();
+        */
+        /*
+        FirewallInteligente firewallInteligente= new FirewallInteligente( firewallHardware.GetNombre(), firewallHardware.GetTipo(),5, " Log Actividade", firewallHardware , firewallSoftware , " TecnologiasSoportadas");
+        firewallInteligente.Activar();
+        firewallInteligente.MostrarEstado();
+        */
+
+        MenuInteractivo menuInteractivo= new MenuInteractivo();
+        menuInteractivo.MostrarMenu();
 
     }
 }
-

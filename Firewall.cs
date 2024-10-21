@@ -1,96 +1,92 @@
+using System.Dynamic;
 
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+namespace firewall;
 
-public class Firewall {
+public class Firewall
+{
     // Atributos
-   private string Nombre;
-   private string Tipo;
-   private  bool Estado;
-   private List <string> Reglas = new List<string>{};
-   
-   // constructor
-   public Firewall(string Nombre, string Tipo,bool Estado,string Reglas)
-   {
-    this.Nombre = Nombre;
-    this.Tipo = Tipo;   
-    this.Estado = Estado;
-    this.Reglas.Add(Reglas);
-   }
+    private string Nombre = "";
+    private string Tipo = "";
+    private bool Estado;
+    private List<string> Reglas = new List<string> { };
+
+    // constructor
+    public Firewall(string Nombre, string Tipo)
+    {
+        this.Nombre = Nombre;
+        this.Tipo = Tipo;
+        this.Estado = false;
+        this.Reglas = new List<string> { };
+    }
     //Metodo de Activar 
-   public void Activar(bool estado) 
-   {
-    if (Estado == false)
+    public virtual void Activar()
     {
-        Console.WriteLine("El estado fue Activado");
-        this.Estado = true;
+        if (this.Estado != false)
+        {
+            Console.WriteLine("Ya estava Activado");
+            this.Estado = true;
+        }
+        else
+        {
+            Console.WriteLine("El estado fue Activado");
+            this.Estado = true;
+        }
     }
-    else
-    {
-        Console.WriteLine("Ya estava Activado");        
-        this.Estado = estado;
-    }
-   }
 
-   // Metodo de Desactivat 
-   public void Desactivar(bool estado)
-   {
-    if (Estado == true){
-         Console.WriteLine("El estado fue Desactivado");
-         this.Estado = false;
-    }
-    else
+    // Metodo de Desactivat 
+    public virtual void Desactivar()
     {
-        Console.WriteLine("Ya esta Desactivado");
-        this.Estado = estado;
+        if (this.Estado == true)
+        {
+            Console.WriteLine("El estado fue Desactivado");
+            this.Estado = false;
+        }
+        else
+        {
+            Console.WriteLine("Ya esta Desactivado");
+            this.Estado = false;
+        }
     }
-   }
-    // Metodo de Agregar Regla
-   public string AgregarRegla(string regla)
-   {
-     this.Reglas.Add(regla);
-     return regla;
-   }
 
-   // Metodo de Mostrar Estado
-   public void MostrarEstado()
-   {
-    Console.WriteLine("********************** Mostrar Estado ****************************");
-    Console.WriteLine($"El nombre es: {this.Nombre}");
-    Console.WriteLine($"El tipo es {this.Tipo}");
-    if (this.Estado == true){
-        Console.WriteLine("El estado es: Activado");
-    }
-    else
+    // Metodo de Mostrar Estado
+    public virtual void MostrarEstado()
     {
-        Console.WriteLine("El estado es: Desactivado");
-    }
-    foreach (var item in this.Reglas)
-     {
-        Console.WriteLine($"Regla: '{item}'");       
-     }
-    Console.WriteLine("*****************************************************************");
-   }
-   
-   // Metodos Set y Get
+        Console.WriteLine("********************** Mostrar Estado ****************************");
+        Console.WriteLine($"El nombre es: {this.Nombre}");
+        Console.WriteLine($"El tipo es {this.Tipo}");
+        if (this.Estado == true)
+        {
+            Console.WriteLine("El estado es: Activado");
+        }
+        else
+        {
+            Console.WriteLine("El estado es: Desactivado");
+        }
+        foreach (var item in this.Reglas)
+        {
+            Console.WriteLine($"Regla: '{item}'");
+        }
 
-   public string GetNombre(){
-    return this.Nombre;
-   }
-   public string GetTipo(){
-    return this.Tipo;
-   }
-   public  bool GetEstado()
-   {
-    return this.Estado;
-   }
-   public List<string> GetReglas()
-   {
-    return this.Reglas;
-   }
+    }
+
+    // Metodos Set y Get
+
+    public string GetNombre()
+    {
+        return this.Nombre;
+    }
+    public string GetTipo()
+    {
+        return this.Tipo;
+    }
+    public bool GetEstado()
+    {
+        return this.Estado;
+    }
+    public List<string> GetReglas()
+    {
+        return this.Reglas;
+    }
 
 
     public string SetNombre(string nombre)
@@ -101,14 +97,13 @@ public class Firewall {
     {
         return this.Tipo = tipo;
     }
-   public bool SetEstado(bool val)
-   {
+    public bool SetEstado(bool val)
+    {
         return this.Estado = val;
-   }
-   public List<string> SetReglas(string reglas)
-   {
-    this.Reglas.Add(reglas);
-    return this.Reglas;
-   }
-
+    }
+    public List<string> SetReglas(string reglas)
+    {
+        this.Reglas.Add(reglas);
+        return this.Reglas;
+    }
 }
